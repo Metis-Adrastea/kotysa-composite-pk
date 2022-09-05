@@ -10,10 +10,7 @@ data class User(val name: String, val age: Int)
 object Users : PostgresqlTable<User>("users") {
     val name = text(User::name)
     val age = integer(User::age)
-
-    init {
-        primaryKey(name, age)
-    }
+    val pk = primaryKey(name, age)
 }
 
 fun main() {
